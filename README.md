@@ -12,10 +12,11 @@ A collection of small projects, tests, and prototypes built while learning and e
 - C++ / Blueprints
 - Visual Studio
 
-## 📂 Structure
-/ProjectName
-├─ Source/
-└─ Content/
+## 📂 Project
+### FirstHourOnUnreal
+Platform game that you need to collect all the coins to win.<br/>
+Move with **WASD**, jump with **SPACE** and dash with **SHIFT**<br/>
+<br/><img src="https://github.com/user-attachments/assets/3fae7dfe-ae82-4ded-860a-2bf0a83834a5" width="600" />
 
 ## 🚀 Status
 Always learning. Always building.
