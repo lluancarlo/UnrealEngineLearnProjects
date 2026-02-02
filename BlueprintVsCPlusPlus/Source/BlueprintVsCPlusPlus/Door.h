@@ -15,12 +15,27 @@ public:
 	// Sets default values for this actor's properties
 	ADoor();
 
+	// Called every frame
+	virtual void Tick(float DeltaTime) override;
+
+	UFUNCTION(BlueprintCallable, Category = "Door Actions")
+	void OpenDoor();
+
+	UFUNCTION(BlueprintCallable, Category = "Door Actions")
+	void CloseDoor();
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
+	UStaticMeshComponent* DoorMesh;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Door Properties")
+	float MoveSpeed;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-public:	
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
-
+private:
+	float MoveIncrement = 50.0f;
+	int32 YawOpenLimit;
+	int32 YawCloseLimit;
 };
