@@ -28,7 +28,7 @@ public:
 	UStaticMeshComponent* DoorMesh;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Door Properties")
-	float MoveSpeed;
+	float MoveSpeed = 10.0f;
 
 protected:
 	// Called when the game starts or when spawned

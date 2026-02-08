@@ -29,6 +29,7 @@ void ADoor::BeginPlay()
 {
 	Super::BeginPlay();
 
+	// Set limit values based on current rotation of the door
 	FRotator currentRotation = this->GetActorRotation();
 	YawOpenLimit = FMath::RoundToInt32(currentRotation.Yaw) - 90;
 	YawCloseLimit = FMath::RoundToInt32(currentRotation.Yaw);
@@ -47,11 +48,10 @@ void ADoor::Tick(float DeltaTime)
 	FRotator currentRotation = this->GetActorRotation();
 	int32 yaw = FMath::RoundToInt32((currentRotation.Yaw < 0.0f) ? currentRotation.Yaw + 360.0f : currentRotation.Yaw);
 
-	if (MoveIncrement < 0 && yaw <= YawOpenLimit)
-	{
-		MoveIncrement = 0.0f;
-	}
-	else if (MoveIncrement > 0 && yaw >= YawCloseLimit)
+	bool isMovingTowardsOpen = MoveIncrement < 0 && yaw <= YawOpenLimit;
+	bool IsMovingTowardsClose = MoveIncrement > 0 && yaw >= YawCloseLimit;
+
+	if (isMovingTowardsOpen || IsMovingTowardsClose)
 	{
 		MoveIncrement = 0.0f;
 	}
