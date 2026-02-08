@@ -18,16 +18,6 @@ APresurePlate::APresurePlate()
 
 	SphereCollider = CreateDefaultSubobject<USphereComponent>(TEXT("SphereCollider"));
 	SphereCollider->SetupAttachment(RootComponent);
-
-	//PresurePlateMesh->SetRelativeLocation(FVector(30.0f, 0.0f, 50.0f));
-	//PresurePlateMesh->SetRelativeScale3D(FVector(0.6f, 0.1f, 1.0f));
-
-	// Set a default cube mesh from the Engine's BasicShapes
-	/*static ConstructorHelpers::FObjectFinder<UStaticMesh> CubeMesh(TEXT("/Engine/BasicShapes/Cube.Cube"));
-	if (CubeMesh.Succeeded())
-	{
-		DoorMesh->SetStaticMesh(CubeMesh.Object);
-	}*/
 }
 
 // Called when the game starts or when spawned
@@ -53,7 +43,6 @@ void APresurePlate::OnPressed(UPrimitiveComponent* OverlappedComp, AActor* Other
 	UPrimitiveComponent* OtherComp, int32 OtherBodyIndex,
 	bool bFromSweep, const FHitResult& SweepResult)
 {
-	UE_LOG(LogTemp, Warning, TEXT("OnPressed"));
 	if (OtherActor->IsA(ABlueprintVsCPlusPlusCharacter::StaticClass()) && DoorRef)
 	{
 		DoorRef->Open();
@@ -63,7 +52,6 @@ void APresurePlate::OnPressed(UPrimitiveComponent* OverlappedComp, AActor* Other
 void APresurePlate::OnReleased(UPrimitiveComponent* OverlappedComp, AActor* OtherActor,
 	UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
 {
-	UE_LOG(LogTemp, Warning, TEXT("OnReleased"));
 	if (OtherActor->IsA(ABlueprintVsCPlusPlusCharacter::StaticClass()) && DoorRef)
 	{
 		DoorRef->Close();
