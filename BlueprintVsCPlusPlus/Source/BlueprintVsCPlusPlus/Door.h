@@ -19,16 +19,16 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	UFUNCTION(BlueprintCallable, Category = "Door Actions")
-	void OpenDoor();
+	void Open();
 
 	UFUNCTION(BlueprintCallable, Category = "Door Actions")
-	void CloseDoor();
+	void Close();
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
 	UStaticMeshComponent* DoorMesh;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Door Properties")
-	float MoveSpeed = 10.0f;
+	float MoveSpeed = 50.0f;
 
 protected:
 	// Called when the game starts or when spawned

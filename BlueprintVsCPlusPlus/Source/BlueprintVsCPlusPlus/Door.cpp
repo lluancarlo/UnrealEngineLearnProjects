@@ -41,7 +41,7 @@ void ADoor::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 
 	if (MoveIncrement == 0.0f)
-		return;
+        return;
 
 	RootComponent->AddRelativeRotation(FRotator(0.0f, MoveIncrement * DeltaTime, 0.0f));
 
@@ -57,12 +57,12 @@ void ADoor::Tick(float DeltaTime)
 	}
 }
 
-void ADoor::OpenDoor()
+void ADoor::Open()
 {
 	MoveIncrement = -MoveSpeed;
 }
 
-void ADoor::CloseDoor()
+void ADoor::Close()
 {
 	MoveIncrement = MoveSpeed;
 }
